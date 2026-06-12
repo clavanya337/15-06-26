@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="main.js">
+<body>
+
+<h2>User Data</h2>
+<button onclick="loadUser()">Load User</button>
+<div id="output"></div>
+
+<script>
+function loadUser() {
+  fetch("https://jsonplaceholder.typicode.com/users/1")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("output").innerHTML =
+        `Name: ${data.name}<br>Email: ${data.email}`;
+    })
+    .catch(error => {
+      document.getElementById("output").textContent = "Error loading data";
+    });
+}
+</script>
+
+</body>
+</html>
